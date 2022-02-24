@@ -3,6 +3,7 @@ package com.library.library.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Data
 @Entity
@@ -10,15 +11,14 @@ import javax.persistence.*;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "booksIdSeq")
-    @SequenceGenerator(name = "booksIdSeq", sequenceName = "books_id_seq", allocationSize = 1)
     @Column(name = "id")
-    private Integer id;
+    private UUID id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "author")
-    private String author;
+    @ManyToOne
+    private UUID authorId;
 
 }
