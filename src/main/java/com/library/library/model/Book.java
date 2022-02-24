@@ -14,10 +14,11 @@ public class Book {
     @Column(name = "id")
     private UUID id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "author")
-    private String author;
+    @ManyToOne
+    private UUID authorId;
 
 }
